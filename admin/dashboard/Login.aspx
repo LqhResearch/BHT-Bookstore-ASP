@@ -39,13 +39,14 @@
                 </div>
                 <div class="card-body">
                     <p class="login-box-msg">Đăng nhập để bắt đầu phiên làm việc</p>
+                    <asp:Label ID="lblMessage" runat="server"></asp:Label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
-                        <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtUsername" CssClass="form-control" runat="server" Text="Admin"></asp:TextBox>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
@@ -53,11 +54,11 @@
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
-                        <asp:TextBox ID="txtPassword" CssClass="form-control" TextMode="Password" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" Text="1"></asp:TextBox>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <asp:Button ID="btnLogin" CssClass="btn btn-primary btn-block" runat="server" Text="Đăng nhập (quản trị viên)" />
+                            <asp:Button ID="btnLogin" CssClass="btn btn-primary btn-block" runat="server" Text="Đăng nhập (quản trị viên)" OnClick="btnLogin_Click" />
                         </div>
                     </div>
                 </div>

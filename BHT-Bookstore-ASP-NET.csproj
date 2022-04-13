@@ -67,11 +67,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\categories\list.aspx" />
     <Content Include="admin\dashboard\Default.aspx" />
     <Content Include="admin\dashboard\Login.aspx" />
+    <Content Include="admin\dashboard\Logout.aspx" />
     <Content Include="assets\img\bht_bookstore_logo.png" />
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\user.png" />
+    <Content Include="sql-server\BHT_Bookstore_AspNet.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +84,13 @@
     </Compile>
     <Compile Include="admin\AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\categories\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\categories\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\dashboard\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -96,7 +106,18 @@
     <Compile Include="admin\dashboard\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\dashboard\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dashboard\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption.cs" />
+    <Compile Include="Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Content.cs" />
+    <Compile Include="SQLQuery.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\AdminSite.Master" />
@@ -108,6 +129,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

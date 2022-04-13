@@ -4,7 +4,6 @@
 
 <html>
 <head runat="server">
-    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="/assets/img/favicon.png" />
@@ -65,8 +64,21 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <%--<div class="image">
+                        <% if (Session["Avatar"].ToString() == "")
+                            { %>
+                        <img src="/assets/img/user.png" class="img-circle elevation-2 border" alt="User Image">
+                        <% }
+                        else
+                        { %>
+                        <img src="<%=Session["Avatar"] %>" class="img-circle elevation-2 border" alt="<%=Session["Fullname"] %> Avatar">
+                        <% } %>
+                    </div>
+                    <div class="info">
+                        <a href="#" class="d-block"><%=Session["Fullname"] %></a>
+                    </div>--%>
                     <div class="image">
-                        <img src="/assets/img/user.png" class="img-circle elevation-2" alt="User Image">
+                        <img src="/assets/img/user.png" class="img-circle elevation-2 border" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">Quốc Hưng</a>
@@ -78,54 +90,22 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="<?=PROJECT_NAME . 'admin/dashboard/index.php'?>" class="nav-link">
+                            <a href="admin/dashboard/Default.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Bảng điều khiển</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/categories/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-clipboard-list"></i>
-                                <p>
-                                    Thể loại <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Thể loại</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?=PROJECT_NAME . 'admin/categories/add.php'?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm thể loại</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?=PROJECT_NAME . 'admin/categories/list.php'?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách thể loại</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/authors/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Tác giả <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Tác giả</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm tác giả</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách tác giả</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -304,7 +284,7 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="<?=PROJECT_NAME . 'admin/dashboard/logout.php'?>" class="nav-link">
+                            <a href="/admin/dashboard/Logout.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
                                 <p>Đăng xuất</p>
                             </a>

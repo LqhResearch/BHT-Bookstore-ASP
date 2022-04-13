@@ -52,7 +52,6 @@ A:\BHT-Bookstore-ASP-NET\bin\roslyn\VBCSCompiler.exe
 A:\BHT-Bookstore-ASP-NET\bin\roslyn\VBCSCompiler.exe.config
 A:\BHT-Bookstore-ASP-NET\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 A:\BHT-Bookstore-ASP-NET\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-A:\BHT-Bookstore-ASP-NET\obj\Debug\BHT-Bookstore-ASP-NET.csproj.AssemblyReference.cache
 A:\BHT-Bookstore-ASP-NET\obj\Debug\BHT-Bookstore-ASP-NET.csproj.CoreCompileInputs.cache
 A:\BHT-Bookstore-ASP-NET\obj\Debug\BHT-Bookstore-ASP-NET.csproj.CopyComplete
 A:\BHT-Bookstore-ASP-NET\obj\Debug\BHT-Bookstore-ASP-NET.dll
