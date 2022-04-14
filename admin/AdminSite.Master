@@ -90,7 +90,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="admin/dashboard/Default.aspx" class="nav-link">
+                            <a href="/admin/dashboard/Default.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Bảng điều khiển</p>
                             </a>
@@ -108,70 +108,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/publishes/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-print"></i>
-                                <p>
-                                    Nhà xuất bản <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Nhà xuất bản</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm nhà xuất bản</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách nhà xuất bản</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/books/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Sách <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Sách</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="<?=PROJECT_NAME . 'admin/books/add.php'?>" class=" nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm sách</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="<?=PROJECT_NAME . 'admin/books/list.php'?>" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách sách</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/suppliers/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-boxes"></i>
-                                <p>
-                                    Nhà cung cấp <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Nhà cung cấp</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm nhà cung cấp</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách nhà cung cấp</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -218,70 +170,16 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/users/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-user-circle"></i>
-                                <p>
-                                    Tài khoản <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Tài khoản</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm tài khoản</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách tài khoản</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/sliders/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-images"></i>
-                                <p>
-                                    Slider <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Slider</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm slider</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách slider</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-ticket-alt"></i>
-                                <p>
-                                    Khuyến mãi <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm khuyến mãi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách khuyến mãi</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="/admin/dashboard/Logout.aspx" class="nav-link">

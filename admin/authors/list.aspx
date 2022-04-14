@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="list.aspx.cs" Inherits="BHT_Bookstore_ASP_NET.admin.categories.list" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/admin/AdminSite.Master" AutoEventWireup="true" CodeBehind="list.aspx.cs" Inherits="BHT_Bookstore_ASP_NET.admin.authors.list" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Thể loại</title>
+    <title>Tác giả</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="content-wrapper">
@@ -10,12 +10,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Thể loại</h1>
+                        <h1 class="m-0">Tác giả</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/admin/dashboard/Default.aspx"><i class="fas fa-home"></i></a></li>
-                            <li class="breadcrumb-item active">Thể loại</li>
+                            <li class="breadcrumb-item active">Tác giả</li>
                         </ol>
                     </div>
                 </div>
@@ -27,15 +27,19 @@
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-primary">
-                        <h5 class="modal-title">Thêm danh mục</h5>
+                        <h5 class="modal-title">Thêm tác giả</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Tên thể loại</label>
+                            <label>Tên tác giả</label>
                             <asp:TextBox ID="txtName_Add" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Thông tin liên hệ</label>
+                            <asp:TextBox ID="txtContact_Add" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -51,19 +55,23 @@
             <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                     <div class="modal-header bg-primary">
-                        <h5 class="modal-title">Sửa danh mục</h5>
+                        <h5 class="modal-title">Sửa tác giả</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Mã thể loại</label>
+                            <label>Mã tác giả</label>
                             <asp:TextBox ID="txtID_Edit" CssClass="form-control" runat="server" ReadOnly="true"></asp:TextBox>
                         </div>
                         <div class="form-group">
-                            <label>Tên thể loại</label>
+                            <label>Tên tác giả</label>
                             <asp:TextBox ID="txtName_Edit" CssClass="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label>Thông tin liên hệ</label>
+                            <asp:TextBox ID="txtContact_Edit" CssClass="form-control" runat="server" TextMode="MultiLine"></asp:TextBox>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -106,23 +114,18 @@
                 <table class="table table-bordered bg-white">
                     <thead class="bg-primary">
                         <tr>
-                            <th>Mã thể loại</th>
-                            <th>Tên thể loại</th>
-                            <th width="111">Công cụ</th>
+                            <th>Mã tác giả</th>
+                            <th>Tên tác giả</th>
+                            <th>Liên hệ</th>
                         </tr>
                     </thead>
                     <tbody>
                         <asp:Repeater ID="rptList" runat="server">
                             <ItemTemplate>
                                 <tr>
-                                    <td><%# Eval("CategoryID") %></td>
-                                    <td><%# Eval("CategoryName") %></td>
-                                    <td>
-                                        <span data-toggle="modal" data-target="#editModal">
-                                            <asp:HyperLink ID="hplEdit" CssClass="btn btn-warning" NavigateUrl='<%# "?id=" + Eval("CategoryID") %>' runat="server"><i class="fas fa-marker"></i></asp:HyperLink>
-                                        </span>
-                                        <asp:HyperLink ID="hplDelete" CssClass="btn btn-danger" NavigateUrl='<%# "?del-id=" + Eval("CategoryID") %>' runat="server"><i class="fas fa-trash"></i></asp:HyperLink>
-                                    </td>
+                                    <td><%# Eval("AuthorID") %></td>
+                                    <td><%# Eval("AuthorName") %></td>
+                                    <td><%# Eval("Contact") %></td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

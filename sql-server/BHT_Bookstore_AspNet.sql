@@ -678,7 +678,7 @@ GO
 CREATE TABLE Authors
 (
 	AuthorID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	Name NVARCHAR(64),
+	AuthorName NVARCHAR(64),
 	Contact NTEXT
 )
 GO
@@ -686,22 +686,20 @@ GO
 CREATE TABLE Publishes
 (
 	PublishID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	Name NVARCHAR(64),
+	PublishName NVARCHAR(64),
 	Phone VARCHAR(11),
 	Address NVARCHAR(255),
-	Fax VARCHAR(11),
-	Website VARCHAR(255)
+	Fax VARCHAR(11)
 )
 GO
 
 CREATE TABLE Suppliers
 (
 	SupplierID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	Name NVARCHAR(64),
+	SupplierName NVARCHAR(64),
 	Phone VARCHAR(11),
 	Address NVARCHAR(255),
-	Fax VARCHAR(11),
-	Website VARCHAR(255)
+	Fax VARCHAR(11)
 )
 GO
 
@@ -836,7 +834,7 @@ CREATE TABLE Sliders
 (
 	SliderID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	Name NVARCHAR(255),
-	Slogan NVARCHAR(255),
+	Description NVARCHAR(255),
 	Thumbnail VARCHAR(255),
 	Status BIT
 )

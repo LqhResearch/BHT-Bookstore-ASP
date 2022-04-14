@@ -67,10 +67,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin\authors\list.aspx" />
+    <Content Include="admin\books\info.aspx" />
+    <Content Include="admin\books\list.aspx" />
     <Content Include="admin\categories\list.aspx" />
     <Content Include="admin\dashboard\Default.aspx" />
     <Content Include="admin\dashboard\Login.aspx" />
     <Content Include="admin\dashboard\Logout.aspx" />
+    <Content Include="admin\publishes\list.aspx" />
+    <Content Include="admin\sliders\list.aspx" />
+    <Content Include="admin\suppliers\list.aspx" />
+    <Content Include="admin\users\list.aspx" />
     <Content Include="assets\img\bht_bookstore_logo.png" />
     <Content Include="assets\img\favicon.png" />
     <Content Include="assets\img\user.png" />
@@ -84,6 +91,27 @@
     </Compile>
     <Compile Include="admin\AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="admin\authors\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\authors\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\books\info.aspx.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\books\info.aspx.designer.cs">
+      <DependentUpon>info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\books\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\books\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\categories\list.aspx.cs">
       <DependentUpon>list.aspx</DependentUpon>
@@ -112,6 +140,34 @@
     </Compile>
     <Compile Include="admin\dashboard\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\publishes\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\publishes\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\sliders\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\sliders\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\suppliers\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\suppliers\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\users\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\users\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="Pagination.cs" />
