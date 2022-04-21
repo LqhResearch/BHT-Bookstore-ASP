@@ -78,9 +78,42 @@
     <Content Include="admin\sliders\list.aspx" />
     <Content Include="admin\suppliers\list.aspx" />
     <Content Include="admin\users\list.aspx" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\img\banner-bg.jpg" />
     <Content Include="assets\img\bht_bookstore_logo.png" />
+    <Content Include="assets\img\blog-1.jpg" />
+    <Content Include="assets\img\blog-2.jpg" />
+    <Content Include="assets\img\blog-3.jpg" />
+    <Content Include="assets\img\blog-4.jpg" />
+    <Content Include="assets\img\blog-5.jpg" />
+    <Content Include="assets\img\book-1.png" />
+    <Content Include="assets\img\book-10.png" />
+    <Content Include="assets\img\book-2.png" />
+    <Content Include="assets\img\book-3.png" />
+    <Content Include="assets\img\book-4.png" />
+    <Content Include="assets\img\book-5.png" />
+    <Content Include="assets\img\book-6.png" />
+    <Content Include="assets\img\book-7.png" />
+    <Content Include="assets\img\book-8.png" />
+    <Content Include="assets\img\book-9.png" />
+    <Content Include="assets\img\book3.png" />
+    <Content Include="assets\img\book5.png" />
+    <Content Include="assets\img\book7.png" />
+    <Content Include="assets\img\deal-img.jpg" />
     <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\letter-bg.jpg" />
+    <Content Include="assets\img\loader-img.gif" />
+    <Content Include="assets\img\pic-1.png" />
+    <Content Include="assets\img\pic-2.png" />
+    <Content Include="assets\img\pic-3.png" />
+    <Content Include="assets\img\pic-4.png" />
+    <Content Include="assets\img\pic-5.png" />
+    <Content Include="assets\img\pic-6.png" />
+    <Content Include="assets\img\stand.png" />
     <Content Include="assets\img\user.png" />
+    <Content Include="assets\img\worldmap.png" />
+    <Content Include="assets\js\script.js" />
+    <Content Include="Default.aspx" />
     <Content Include="sql-server\BHT_Bookstore_AspNet.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -169,7 +202,21 @@
     <Compile Include="admin\users\list.aspx.designer.cs">
       <DependentUpon>list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Encryption.cs" />
+    <Compile Include="HomeMaster.Master.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomeMaster.Master.designer.cs">
+      <DependentUpon>HomeMaster.Master</DependentUpon>
+    </Compile>
     <Compile Include="Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Content.cs" />
@@ -177,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="admin\AdminSite.Master" />
+    <Content Include="HomeMaster.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
