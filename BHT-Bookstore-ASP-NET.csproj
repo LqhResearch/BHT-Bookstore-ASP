@@ -74,12 +74,20 @@
     <Content Include="admin\dashboard\Default.aspx" />
     <Content Include="admin\dashboard\Login.aspx" />
     <Content Include="admin\dashboard\Logout.aspx" />
+    <Content Include="admin\orders\list.aspx" />
+    <Content Include="admin\orders\OrderDetails.aspx" />
     <Content Include="admin\publishes\list.aspx" />
     <Content Include="admin\sliders\list.aspx" />
     <Content Include="admin\suppliers\list.aspx" />
     <Content Include="admin\users\list.aspx" />
-    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\login.css" />
+    <Content Include="assets\css\owl.carousel.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\ustora-style.css" />
     <Content Include="assets\img\banner-bg.jpg" />
+    <Content Include="assets\img\banner.jpg" />
     <Content Include="assets\img\bht_bookstore_logo.png" />
     <Content Include="assets\img\blog-1.jpg" />
     <Content Include="assets\img\blog-2.jpg" />
@@ -112,8 +120,20 @@
     <Content Include="assets\img\stand.png" />
     <Content Include="assets\img\user.png" />
     <Content Include="assets\img\worldmap.png" />
+    <Content Include="assets\js\bxslider.min.js" />
+    <Content Include="assets\js\jquery-2.2.3.min.js" />
+    <Content Include="assets\js\jquery.easing.1.3.min.js" />
+    <Content Include="assets\js\jquery.sticky.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\owl.carousel.min.js" />
     <Content Include="assets\js\script.js" />
+    <Content Include="assets\js\script.slider.js" />
+    <Content Include="Carts.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
+    <Content Include="QuantityCart.aspx" />
+    <Content Include="SignIn.aspx" />
     <Content Include="sql-server\BHT_Bookstore_AspNet.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -174,6 +194,20 @@
     <Compile Include="admin\dashboard\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\orders\list.aspx.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\orders\list.aspx.designer.cs">
+      <DependentUpon>list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\orders\OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\orders\OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\publishes\list.aspx.cs">
       <DependentUpon>list.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -202,6 +236,13 @@
     <Compile Include="admin\users\list.aspx.designer.cs">
       <DependentUpon>list.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Carts.aspx.cs">
+      <DependentUpon>Carts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Carts.aspx.designer.cs">
+      <DependentUpon>Carts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -217,9 +258,37 @@
     <Compile Include="HomeMaster.Master.designer.cs">
       <DependentUpon>HomeMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="QuantityCart.aspx.cs">
+      <DependentUpon>QuantityCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuantityCart.aspx.designer.cs">
+      <DependentUpon>QuantityCart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SignIn.aspx.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SignIn.aspx.designer.cs">
+      <DependentUpon>SignIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SQLQuery.cs" />
   </ItemGroup>
   <ItemGroup>

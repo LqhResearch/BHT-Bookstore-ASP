@@ -6,11 +6,11 @@ namespace BHT_Bookstore_ASP_NET.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (!IsPostBack)
-            //{
-            //    if (!Convert.ToBoolean(Session["Admin_Login"]))
-            //        Response.Redirect("/admin/dashboard/Login.aspx");
-            //}
+            if (!IsPostBack)
+            {
+                if (Convert.ToInt32(Session["user_type"]) != 1)
+                    Response.Redirect("/Login.aspx");
+            }
         }
     }
 }

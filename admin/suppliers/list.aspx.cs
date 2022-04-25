@@ -31,7 +31,7 @@ namespace BHT_Bookstore_ASP_NET.admin.suppliers
 
                 DataTable dt = SQLQuery.ExecuteQuery("SELECT * FROM Suppliers WHERE SupplierID = " + id);
                 txtID_Edit.Text = dt.Rows[0]["SupplierID"].ToString();
-                txtName_Edit.Text = dt.Rows[0]["Name"].ToString();
+                txtName_Edit.Text = dt.Rows[0]["SupplierName"].ToString();
                 txtPhone_Edit.Text = dt.Rows[0]["Phone"].ToString();
                 txtAddress_Edit.Text = dt.Rows[0]["Address"].ToString();
                 txtFax_Edit.Text = dt.Rows[0]["Fax"].ToString();
@@ -63,21 +63,21 @@ namespace BHT_Bookstore_ASP_NET.admin.suppliers
 
         protected void btnSubmit_Add_Click(object sender, EventArgs e)
         {
-            string sql = @"INSERT INTO Suppliers (Name, Phone, Address, Fax) VALUES (N'" + txtName_Add.Text + "', N'" + txtPhone_Add.Text + "', N'" + txtAddress_Add.Text + "', N'" + txtFax_Add.Text + "')";
+            string sql = @"INSERT INTO Suppliers (SupplierName, Phone, Address, Fax) VALUES (N'" + txtName_Add.Text + "', N'" + txtPhone_Add.Text + "', N'" + txtAddress_Add.Text + "', N'" + txtFax_Add.Text + "')";
             if (SQLQuery.ExecuteNonQuery(sql) > 0)
                 Response.Redirect("list.aspx");
         }
 
         protected void btnSubmit_Edit_Click(object sender, EventArgs e)
         {
-            string sql = @"UPDATE Suppliers SET Name = N'" + txtName_Edit.Text + "', Phone = N'" + txtPhone_Edit.Text + "', Address = N'" + txtAddress_Edit.Text + "', Fax = N'" + txtFax_Edit.Text + "' WHERE SupplierID = " + txtID_Edit.Text;
+            string sql = @"UPDATE Suppliers SET SupplierName = N'" + txtName_Edit.Text + "', Phone = N'" + txtPhone_Edit.Text + "', Address = N'" + txtAddress_Edit.Text + "', Fax = N'" + txtFax_Edit.Text + "' WHERE SupplierID = " + txtID_Edit.Text;
             if (SQLQuery.ExecuteNonQuery(sql) > 0)
                 Response.Redirect("list.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM Suppliers WHERE Name LIKE N'%" + txtSearch.Text + "%'";
+            string sql = "SELECT * FROM Suppliers WHERE SupplierName LIKE N'%" + txtSearch.Text + "%'";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             rptList.DataSource = dt;
             rptList.DataBind();

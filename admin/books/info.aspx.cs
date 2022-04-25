@@ -25,7 +25,7 @@ namespace BHT_Bookstore_ASP_NET.admin.books
                 DataRow row = dt.Rows[0];
 
                 txtBookInfo.Text = "ISBN: " + row["ISBN"];
-                txtBookInfo.Text += "\nTên sách: " + row["Name"];
+                txtBookInfo.Text += "\nTên sách: " + row["BookTitle"];
                 txtBookInfo.Text += "\nMô tả: " + row["Description"];
                 txtBookInfo.Text += "\nNăm xuất bản: " + row["PublishYear"];
                 txtBookInfo.Text += "\nTrọng lượng: " + row["Weight"];

@@ -6,7 +6,7 @@ namespace BHT_Bookstore_ASP_NET
 {
     public class SQLQuery
     {
-        static string connectionString = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=BHT_Bookstore;Integrated Security=True";
+        static string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=BHT_Bookstore;Integrated Security=True";
 
         /// <summary>
         /// Truy vấn trả về một DataTable, phù hợp thực hiện các truy vấn như Select.

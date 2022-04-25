@@ -111,7 +111,7 @@
                                     <td><%# Eval("Avatar") %></td>
                                     <td><%# Eval("Status").ToString() == "True" ? "<span class='badge badge-success'>Hoạt động</span>" : "<span class='badge badge-danger'>Khoá</span>" %></td>
                                     <td><%# Eval("CreatedAt") %></td>
-                                    <td><%# "<span class='badge badge-info'>" +  Eval("Name") + "</span>" %></td>
+                                    <td><%# "<span class='badge badge-info'>" +  Eval("AccountTypeName") + "</span>" %></td>
                                     <td>
                                         <span data-toggle="modal" data-target="#editModal">
                                             <asp:HyperLink ID="hplEdit" CssClass="btn btn-warning" NavigateUrl='<%# "?id=" + Eval("UserName") %>' runat="server"><i class="fas fa-marker"></i></asp:HyperLink>

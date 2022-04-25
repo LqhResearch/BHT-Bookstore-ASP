@@ -249,10 +249,10 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("ISBN") %></td>
-                                    <td><%# Eval("Name") %></td>
+                                    <td><%# Eval("BookTitle") %></td>
                                     <td><%# Eval("Description") %></td>
                                     <td><%# "<img height='50' src='" + Eval("Thumbnail") + "' alt='' />" %></td>
-                                    <td><%# Eval("SalePrice") %></td>
+                                    <td><%# Eval("Price") %></td>
                                     <td><%# Eval("CategoryName") %></td>
                                     <td><%# Eval("PublishName") %></td>
                                     <td>

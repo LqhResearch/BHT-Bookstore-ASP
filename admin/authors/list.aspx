@@ -117,6 +117,7 @@
                             <th>Mã tác giả</th>
                             <th>Tên tác giả</th>
                             <th>Liên hệ</th>
+                            <th width="111">Công cụ</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -126,6 +127,12 @@
                                     <td><%# Eval("AuthorID") %></td>
                                     <td><%# Eval("AuthorName") %></td>
                                     <td><%# Eval("Contact") %></td>
+                                    <td>
+                                        <span data-toggle="modal" data-target="#editModal">
+                                            <asp:HyperLink ID="hplEdit" CssClass="btn btn-warning" NavigateUrl='<%# "?id=" + Eval("AuthorID") %>' runat="server"><i class="fas fa-marker"></i></asp:HyperLink>
+                                        </span>
+                                        <asp:HyperLink ID="hplDelete" CssClass="btn btn-danger" NavigateUrl='<%# "?del-id=" + Eval("AuthorID") %>' runat="server"><i class="fas fa-trash"></i></asp:HyperLink>
+                                    </td>
                                 </tr>
                             </ItemTemplate>
                         </asp:Repeater>

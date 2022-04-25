@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace BHT_Bookstore_ASP_NET
 {
@@ -11,7 +6,22 @@ namespace BHT_Bookstore_ASP_NET
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
 
+            }
+        }
+
+        public static string NumberItemsCarts(string username)
+        {
+            string sql = "SELECT count(*) FROM Carts WHERE Username = '" + username + "'";
+            return SQLQuery.ExecuteScalar(sql).ToString();
+        }
+
+        public static string TotalMoneyCarts(string username)
+        {
+            string sql = "SELECT SUM(Price * Amount) FROM Carts, Books WHERE Carts.ISBN = Books.ISBN AND Username = '" + username + "'";
+            return SQLQuery.ExecuteScalar(sql).ToString();
         }
     }
 }

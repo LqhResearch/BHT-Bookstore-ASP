@@ -31,7 +31,7 @@ namespace BHT_Bookstore_ASP_NET.admin.authors
 
                 DataTable dt = SQLQuery.ExecuteQuery("SELECT * FROM Authors WHERE AuthorID = " + id);
                 txtID_Edit.Text = dt.Rows[0]["AuthorID"].ToString();
-                txtName_Edit.Text = dt.Rows[0]["Name"].ToString();
+                txtName_Edit.Text = dt.Rows[0]["AuthorName"].ToString();
                 txtContact_Edit.Text = dt.Rows[0]["Contact"].ToString();
             }
         }
@@ -61,21 +61,21 @@ namespace BHT_Bookstore_ASP_NET.admin.authors
 
         protected void btnSubmit_Add_Click(object sender, EventArgs e)
         {
-            string sql = @"INSERT INTO Authors (Name, Contact) VALUES (N'" + txtName_Add.Text + "', N'" + txtContact_Add.Text + "')";
+            string sql = @"INSERT INTO Authors (AuthorName, Contact) VALUES (N'" + txtName_Add.Text + "', N'" + txtContact_Add.Text + "')";
             if (SQLQuery.ExecuteNonQuery(sql) > 0)
                 Response.Redirect("list.aspx");
         }
 
         protected void btnSubmit_Edit_Click(object sender, EventArgs e)
         {
-            string sql = @"UPDATE Authors SET Name = N'" + txtName_Edit.Text + "', Contact = N'" + txtContact_Edit.Text + "' WHERE AuthorID = " + txtID_Edit.Text;
+            string sql = @"UPDATE Authors SET AuthorName = N'" + txtName_Edit.Text + "', Contact = N'" + txtContact_Edit.Text + "' WHERE AuthorID = " + txtID_Edit.Text;
             if (SQLQuery.ExecuteNonQuery(sql) > 0)
                 Response.Redirect("list.aspx");
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM Authors WHERE Name LIKE N'%" + txtSearch.Text + "%'";
+            string sql = "SELECT * FROM Authors WHERE AuthorName LIKE N'%" + txtSearch.Text + "%'";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             rptList.DataSource = dt;
             rptList.DataBind();

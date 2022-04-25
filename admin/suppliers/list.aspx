@@ -139,7 +139,6 @@
                             <th>Điện thoại</th>
                             <th>Địa chỉ</th>
                             <th>Fax</th>
-                            <th>Website</th>
                             <th width="111">Công cụ</th>
                         </tr>
                     </thead>
@@ -148,7 +147,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("SupplierID") %></td>
-                                    <td><%# Eval("Name") %></td>
+                                    <td><%# Eval("SupplierName") %></td>
                                     <td><%# Eval("Phone") %></td>
                                     <td><%# Eval("Address") %></td>
                                     <td><%# Eval("Fax") %></td>

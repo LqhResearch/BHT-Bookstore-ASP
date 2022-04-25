@@ -153,7 +153,7 @@
                             <ItemTemplate>
                                 <tr>
                                     <td><%# Eval("SliderID") %></td>
-                                    <td><%# Eval("Name") %></td>
+                                    <td><%# Eval("SliderName") %></td>
                                     <td><%# Eval("Description") %></td>
                                     <td><%# "<img height='50' src='" + Eval("Thumbnail") + "' alt='' />" %></td>
                                     <td><%# Eval("Status").ToString() == "True" ? "<span class='badge badge-success'>Hoạt động</span>" : "<span class='badge badge-danger'>Khoá</span>" %></td>

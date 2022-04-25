@@ -138,8 +138,7 @@
                             <th>Tên nhà xuất bản</th>
                             <th>Điện thoại</th>
                             <th>Địa chỉ</th>
-                            <th>Fax</th>
-                            <th>Website</th>
+                            <th>Fax</th>                       
                             <th width="111">Công cụ</th>
                         </tr>
                     </thead>

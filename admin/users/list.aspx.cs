@@ -31,7 +31,7 @@ namespace BHT_Bookstore_ASP_NET.admin.users
                 DataTable dt2 = SQLQuery.ExecuteQuery("SELECT * FROM AccountTypes");
                 ddlAccountType_Edit.DataSource = dt2;
                 ddlAccountType_Edit.DataValueField = "AccountTypeID";
-                ddlAccountType_Edit.DataTextField = "Name";
+                ddlAccountType_Edit.DataTextField = "AccountTypeName";
                 ddlAccountType_Edit.DataBind();
 
                 DataTable dt = SQLQuery.ExecuteQuery("SELECT * FROM Users WHERE UserName = N'" + id + "'");

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace BHT_Bookstore_ASP_NET
 {
@@ -11,7 +6,25 @@ namespace BHT_Bookstore_ASP_NET
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                AddCart();
 
+                rptSliders.DataSource = SQLQuery.ExecuteQuery("SELECT * FROM Sliders");
+                rptSliders.DataBind();
+                rptLastestBooks.DataSource = SQLQuery.ExecuteQuery("SELECT * FROM Books");
+                rptLastestBooks.DataBind();
+            }
+        }
+
+        private void AddCart()
+        {
+            if (Request.QueryString["cart-isbn"] != null)
+            {
+                string isbn = Request.QueryString["cart-isbn"];
+                string sql = "INSERT INTO Carts (ISBN, UserName) VALUES ('" + isbn + "', N'" + Session["username"] + "')";
+                SQLQuery.ExecuteQuery(sql);
+            }
         }
     }
 }

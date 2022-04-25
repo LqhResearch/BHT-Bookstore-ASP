@@ -81,7 +81,7 @@
                         <img src="/assets/img/user.png" class="img-circle elevation-2 border" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Quốc Hưng</a>
+                        <a href="#" class="d-block"><%=Session["user_displayName"] %></a>
                     </div>
                 </div>
 
@@ -126,48 +126,10 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-keyboard"></i>
-                                <p>
-                                    Phiếu nhập <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm phiếu nhập</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách phiếu nhập</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/admin/orders/list.aspx" class="nav-link">
                                 <i class="nav-icon fas fa-truck-loading"></i>
-                                <p>
-                                    Đơn hàng <i class="right fas fa-angle-left"></i>
-                                </p>
+                                <p>Đơn hàng</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="./index.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Thêm đơn hàng</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Danh sách đơn hàng</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="/admin/users/list.aspx" class="nav-link">
@@ -182,9 +144,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/dashboard/Logout.aspx" class="nav-link">
+                            <a href="/" class="nav-link">
                                 <i class="nav-icon fas fa-sign-out-alt"></i>
-                                <p>Đăng xuất</p>
+                                <p>Trang mua hàng</p>
                             </a>
                         </li>
                     </ul>

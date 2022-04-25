@@ -32,7 +32,7 @@ namespace BHT_Bookstore_ASP_NET.admin.sliders
 
                 DataTable dt = SQLQuery.ExecuteQuery("SELECT * FROM Sliders WHERE SliderID = " + id);
                 txtID_Edit.Text = dt.Rows[0]["SliderID"].ToString();
-                txtName_Edit.Text = dt.Rows[0]["Name"].ToString();
+                txtName_Edit.Text = dt.Rows[0]["SliderName"].ToString();
                 txtSlogan_Edit.Text = dt.Rows[0]["Description"].ToString();
                 ddlStatus_Edit.SelectedValue = Convert.ToInt32(dt.Rows[0]["Status"]).ToString();
             }
@@ -86,7 +86,7 @@ namespace BHT_Bookstore_ASP_NET.admin.sliders
                 string filePath = MapPath(fileName);
                 fThumbnail_Add.SaveAs(filePath);
 
-                string sql = @"INSERT INTO Sliders (Name, Description, Thumbnail, Status) VALUES (N'" + txtName_Add.Text + "', N'" + txtSlogan_Add.Text + "', N'" + fileName + "', N'" + ddlStatus_Add.SelectedValue + "')";
+                string sql = @"INSERT INTO Sliders (SliderName, Description, Thumbnail, Status) VALUES (N'" + txtName_Add.Text + "', N'" + txtSlogan_Add.Text + "', N'" + fileName + "', N'" + ddlStatus_Add.SelectedValue + "')";
                 if (SQLQuery.ExecuteNonQuery(sql) > 0)
                     Response.Redirect("list.aspx");
             }
@@ -100,7 +100,7 @@ namespace BHT_Bookstore_ASP_NET.admin.sliders
                 string filePath = MapPath(fileName);
                 fThumbnail_Edit.SaveAs(filePath);
 
-                string sql = @"UPDATE Sliders SET Name = N'" + txtName_Edit.Text + "', Description = N'" + txtSlogan_Edit.Text + "', Thumbnail = N'" + fileName + "', Status = " + ddlStatus_Edit.SelectedValue + " WHERE SliderID = " + txtID_Edit.Text;
+                string sql = @"UPDATE Sliders SET SliderName = N'" + txtName_Edit.Text + "', Description = N'" + txtSlogan_Edit.Text + "', Thumbnail = N'" + fileName + "', Status = " + ddlStatus_Edit.SelectedValue + " WHERE SliderID = " + txtID_Edit.Text;
                 if (SQLQuery.ExecuteNonQuery(sql) > 0)
                     Response.Redirect("list.aspx");
             }
@@ -108,7 +108,7 @@ namespace BHT_Bookstore_ASP_NET.admin.sliders
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string sql = "SELECT * FROM Sliders WHERE Name LIKE N'%" + txtSearch.Text + "%'";
+            string sql = "SELECT * FROM Sliders WHERE SliderName LIKE N'%" + txtSearch.Text + "%'";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             rptList.DataSource = dt;
             rptList.DataBind();

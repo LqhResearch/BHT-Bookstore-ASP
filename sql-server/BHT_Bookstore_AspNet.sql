@@ -7,11 +7,11 @@ GO
 CREATE TABLE AccountTypes
 (
 	AccountTypeID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	Name NVARCHAR(25) NOT NULL
+	AccountTypeName NVARCHAR(25) NOT NULL
 )
 GO
 
-INSERT INTO AccountTypes (Name) VALUES 
+INSERT INTO AccountTypes (AccountTypeName) VALUES 
 (N'Quản trị viên'),
 (N'Nhân viên'),
 (N'Thành viên');
@@ -19,12 +19,12 @@ GO
 
 CREATE TABLE Users
 (
-	UserName NVARCHAR(64) NOT NULL PRIMARY KEY,
-	PassWord VARCHAR(64) NOT NULL,
+	Username NVARCHAR(64) NOT NULL PRIMARY KEY,
+	Password VARCHAR(64) NOT NULL,
 	Fullname NVARCHAR(64),
 	Phone VARCHAR(11),
 	Email VARCHAR(64) NOT NULL, -- Có thể đăng nhập bằng Email
-	Avatar VARCHAR(255) NOT NULL,
+	Avatar NVARCHAR(255) NOT NULL,
 	Status BIT DEFAULT 1, -- 1: hoạt động -- 0: khoá
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	AccountTypeID INT NOT NULL,
@@ -35,7 +35,7 @@ GO
 
 -- Username: Admin, QH -- Password: 123
 INSERT INTO Users VALUES ('Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0123456789', 'admin@gmail.com', '', 1, GETDATE(), 1)
-INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0987654321', 'qh@gmail.com', '', 0, GETDATE(), 1)
+INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quốc Hưng', '0987654321', 'qh@gmail.com', '', 0, GETDATE(), 3)
 GO
 
 CREATE TABLE Languages
@@ -653,7 +653,6 @@ INSERT INTO Languages VALUES
 ('zh_Hant', N'Traditional Chinese'),
 ('zu', N'Tiếng Zulu'),
 ('zun', N'Tiếng Zuni'),
-('zxx', N'Không có nội dung ngôn ngữ'),
 ('zza', N'Tiếng Zaza');
 GO
 
@@ -683,6 +682,23 @@ CREATE TABLE Authors
 )
 GO
 
+INSERT INTO Authors (AuthorName, Contact) VALUES
+(N'Aoyama Gosho', N'Tác giả Nhật Bản'),
+(N'Nguyễn Nhật Ánh', N'Tác giả Việt Nam'),
+(N'Author Conan Doyle', N'Tác giả Anh'),
+(N'Shinkai Makoto', N'Tác giả Nhật'),
+(N'Tite Kubo', N'Tác giả Nhật Bản'),
+(N'Tô Hoài', N'Tác giả Việt Nam'),
+(N'Eiichiro Oda', N'Tác giả Nhật Bản'),
+(N'ONE', N'Tác giả Nhật Bản'),
+(N'Murata', N'Tác giả Nhật Bản'),
+(N'Gege Akutami', N'Tác giả Nhật Bản'),
+(N'Obata', N'Tác giả Nhật Bản'),
+(N'Masashi Kisimoto', N'Tác giả Nhật Bản'),
+(N'Fujiko', N'Tác giả Nhật Bản')
+
+GO
+
 CREATE TABLE Publishes
 (
 	PublishID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
@@ -691,6 +707,13 @@ CREATE TABLE Publishes
 	Address NVARCHAR(255),
 	Fax VARCHAR(11)
 )
+GO
+
+INSERT INTO Publishes (PublishName, Phone, Address, Fax) VALUES 
+(N'NXB Kim Đồng', '02839390465', N'TP. Hồ Chí Minh', ''),
+(N'NXB Trẻ', '02893316289', N'TP. Hồ Chí Minh', ''),
+(N'NXB IPM', '0333193979', N'110 Nguyễn Ngọc Nại, Hà Nội', ''),
+(N'NXB Đồng Nai', '0933109009', N'TP. Biên Hoà, Đồng Nai', '')
 GO
 
 CREATE TABLE Suppliers
@@ -703,18 +726,22 @@ CREATE TABLE Suppliers
 )
 GO
 
+INSERT INTO Suppliers (SupplierName, Phone, Address, Fax) VALUES 
+(N'Fasaha', '0987654321', N'TP. Hồ Chí Minh', '')
+GO
+
 CREATE TABLE Books
 (
 	ISBN VARCHAR(13) NOT NULL PRIMARY KEY,
-	Name VARCHAR(255),
+	BookTitle NVARCHAR(255),
 	Description NTEXT,
 	PublishYear INT,
 	Weight INT,
 	Size VARCHAR(11),
 	PageNumber INT,
-	Thumbnail VARCHAR(255),
+	Thumbnail NVARCHAR(255),
 	LanguageID VARCHAR(8),
-	SalePrice INT,
+	Price INT,
 	QuantitySold INT,
 	InventoryNumber INT,
 	CategoryID INT,
@@ -724,6 +751,21 @@ CREATE TABLE Books
 	FOREIGN KEY (CategoryID) REFERENCES Categories (CategoryID),
 	FOREIGN KEY (PublishID) REFERENCES Publishes (PublishID),
 )
+GO
+
+INSERT INTO Books VALUES
+('9784041046593', N'Your Name', N'Truyện ngắn', 2016, 0, '130x176', 288, N'/assets/img/books/your-name.jpg', 'vi', 60000, 100, 100, 6, 3),
+('9786042268127', N'Chú Thuật Hồi Chiến Tập 1', N'Truyện ngắn', 2022, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-tap-1.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042234252', N'Thám Tử Lừng Danh Conan - Tập 99', N'Truyện ngắn', 2022, 200, '176x113', 184, N'/assets/img/books/conan-tap-99.jpg', 'vi', 20000, 100, 100, 6, 1),
+('9784088802206', N'Naruto tập 72', N'Truyện ngắn', 2021, 0, '117x176', 288, N'/assets/img/books/naruto-vol-72.jpg', 'vi', 22000, 100, 100, 6, 3),
+('9786042212847', N'Doraemon dài - Tập 14: Nobita và ba chàng hiệp sĩ mộng mơ', N'Truyện dài', 2021, 0, '130x190', 189, N'/assets/img/books/doraemon-vol-14.jpg', 'vi', 18000, 100, 100, 6, 1),
+('9786042212840', N'Chú Thuật Hồi Chiến Tập 0', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chut-thuat-hoi-chien-0.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042212842', N'Chú Thuật Hồi Chiến Tập 2', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-2.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042212831', N'Death Note Tập 1', N'Truyện ngắn', 2020, 0, '117x176', 184, N'/assets/img/books/death-note-1.jpg', 'vi', 35000, 100, 100, 6, 1),
+('9786042212811', N'One Punch Man Tập 1', N'Truyện ngắn', 2018, 0, '117x176', 184, N'/assets/img/books/opm-1.jpg', 'vi', 18000, 100, 100, 6, 1),
+('9786042212819', N'One Punch Man Tập 9', N'Truyện ngắn', 2018, 0, '117x176', 184, N'/assets/img/books/opm-9.jpg', 'vi', 18000, 100, 100, 6, 1)
+
+GO
 
 CREATE TABLE Images
 (
@@ -737,27 +779,26 @@ GO
 
 CREATE TABLE Orders
 (
-	OrderID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	OrderID VARCHAR(10) PRIMARY KEY,
 	TotalMoney INT,
 	TotalRevenue INT,
-	Status INT, -- 0: chưa giao -- 1: đã giao
+	Status BIT, -- 0: chưa giao -- 1: đã giao
 	PaymentDate DATETIME,
 	CreatedAt DATETIME DEFAULT GETDATE(),
-	UserName NVARCHAR(64) NOT NULL,
+	Username NVARCHAR(64) NOT NULL,
 
-	FOREIGN KEY (UserName) REFERENCES Users (UserName)
+	FOREIGN KEY (Username) REFERENCES Users (Username)
 )
 GO
 
 CREATE TABLE OrderDetails
 (
+	OrderDetailsID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	ISBN VARCHAR(13) NOT NULL,
-	OrderID INT,
+	OrderID VARCHAR(10),
 	Amount INT,
-	CreatedAt DATETIME DEFAULT GETDATE(),
-	UpdatedAt DATETIME DEFAULT GETDATE(),
+	CreatedAt DATETIME DEFAULT GETDATE()
 
-	PRIMARY KEY (ISBN, OrderID),
 	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),
 	FOREIGN KEY (OrderID) REFERENCES Orders (OrderID),
 )
@@ -766,13 +807,13 @@ GO
 CREATE TABLE Carts
 (
 	ISBN VARCHAR(13) NOT NULL,
-	UserName NVARCHAR(64) NOT NULL,
-	Amount INT,
+	Username NVARCHAR(64) NOT NULL,
+	Amount INT DEFAULT 1,
 	UpdatedAt DATETIME DEFAULT GETDATE(),
 
-	PRIMARY KEY (ISBN, UserName),
+	PRIMARY KEY (ISBN, Username),
 	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),
-	FOREIGN KEY (UserName) REFERENCES Users (UserName),
+	FOREIGN KEY (Username) REFERENCES Users (Username),
 )
 GO
 
@@ -788,17 +829,34 @@ CREATE TABLE Composers
 )
 GO
 
+INSERT INTO Composers VALUES
+('9784041046593', 4, N'Tác giả chính'),
+('9786042268127', 10, N'Tác giả chính'),
+('9786042234252', 1, N'Tác giả chính'),
+('9784088802206', 12, N'Tác giả chính'),
+('9786042212847', 13, N'Tác giả chính'),
+('9786042212840', 10, N'Tác giả chính'),
+('9786042212842', 10, N'Tác giả chính'),
+('9786042212831', 7, N'Tác giả chính'),
+('9786042268127', 11, N'Tác giả chính'),
+('9786042212811', 8, N'Tác giả chính'),
+('9786042212811', 9, N'Tác giả phụ'),
+('9786042212819', 8, N'Tác giả chính'),
+('9786042212819', 9, N'Tác giả phụ')
+
+GO
+
 CREATE TABLE Rating
 (
 	ISBN VARCHAR(13) NOT NULL,
-	UserName NVARCHAR(64) NOT NULL,
+	Username NVARCHAR(64) NOT NULL,
 	Point INT,
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	UpdatedAt DATETIME DEFAULT GETDATE(),
 
-	PRIMARY KEY (ISBN, UserName),
+	PRIMARY KEY (ISBN, Username),
 	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),
-	FOREIGN KEY (UserName) REFERENCES Users (UserName),
+	FOREIGN KEY (Username) REFERENCES Users (Username),
 )
 GO
 
@@ -824,7 +882,7 @@ CREATE TABLE Vouchers
 	StartTime DATETIME,
 	EndTime DATETIME,
 	UsedStatus BIT, -- 0: chưa dùng, 1: đã dùng
-	UserName NVARCHAR(64),
+	Username NVARCHAR(64),
 
 	FOREIGN KEY (Username) REFERENCES Users (Username),
 )
@@ -833,9 +891,16 @@ GO
 CREATE TABLE Sliders
 (
 	SliderID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	Name NVARCHAR(255),
+	SliderName NVARCHAR(255),
 	Description NVARCHAR(255),
-	Thumbnail VARCHAR(255),
+	Thumbnail NVARCHAR(255),
 	Status BIT
 )
+GO
+
+INSERT INTO Sliders (SliderName, Description, Thumbnail, Status) VALUES 
+(N'Slider 1', N'Mô tả slide 1', '/assets/img/sliders/slider-1.png', 1),
+(N'Slider 2', N'Mô tả slide 2', '/assets/img/sliders/slider-2.png', 1),
+(N'Slider 3', N'Mô tả slide 3', '/assets/img/sliders/slider-3.jpg', 1),
+(N'Slider 4', N'Mô tả slide 4', '/assets/img/sliders/slider-4.jpg', 1)
 GO
