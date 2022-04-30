@@ -33,13 +33,22 @@ namespace BHT_Bookstore_ASP_NET
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
-        /// txtPassword control.
+        /// txtPassword1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword1;
+
+        /// <summary>
+        /// txtPassword2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPassword2;
 
         /// <summary>
         /// txtFullname control.

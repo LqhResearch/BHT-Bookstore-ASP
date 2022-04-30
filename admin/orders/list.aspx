@@ -61,7 +61,7 @@
                             <th>Ngày thanh toán</th>
                             <th>Ngày tạo</th>
                             <th>Người mua</th>
-                            <th width="177">Công cụ</th>
+                            <th width="180">Công cụ</th>
                         </tr>
                     </thead>
                     <tbody>

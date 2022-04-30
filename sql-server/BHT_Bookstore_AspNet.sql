@@ -25,6 +25,7 @@ CREATE TABLE Users
 	Phone VARCHAR(11),
 	Email VARCHAR(64) NOT NULL, -- Có thể đăng nhập bằng Email
 	Avatar NVARCHAR(255) NOT NULL,
+	Money INT DEFAULT 0,
 	Status BIT DEFAULT 1, -- 1: hoạt động -- 0: khoá
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	AccountTypeID INT NOT NULL,
@@ -34,8 +35,8 @@ CREATE TABLE Users
 GO
 
 -- Username: Admin, QH -- Password: 123
-INSERT INTO Users VALUES ('Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0123456789', 'admin@gmail.com', '', 1, GETDATE(), 1)
-INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quốc Hưng', '0987654321', 'qh@gmail.com', '', 0, GETDATE(), 3)
+INSERT INTO Users VALUES ('Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0123456789', 'admin@gmail.com', '', 0, 1, GETDATE(), 1)
+INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quốc Hưng', '0987654321', 'qh@gmail.com', '', 0, 0, GETDATE(), 3)
 GO
 
 CREATE TABLE Languages
@@ -821,7 +822,7 @@ CREATE TABLE Composers
 (
 	ISBN VARCHAR(13) NOT NULL,
 	AuthorID INT NOT NULL,
-	Role VARCHAR(20)
+	Role NVARCHAR(20)
 
 	PRIMARY KEY (ISBN, AuthorID),
 	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),

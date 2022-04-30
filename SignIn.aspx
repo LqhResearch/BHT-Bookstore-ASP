@@ -31,7 +31,10 @@
                             <asp:TextBox ID="txtUsername" runat="server" Text="Tên đăng nhập"></asp:TextBox>
                         </div>
                         <div class="field-group">
-                            <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" Text="Mật khẩu"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword1" runat="server" TextMode="Password" Text="Mật khẩu"></asp:TextBox>
+                        </div>
+                        <div class="field-group">
+                            <asp:TextBox ID="txtPassword2" runat="server" TextMode="Password" Text="Mật khẩu"></asp:TextBox>
                         </div>
                         <div class="field-group">
                             <asp:TextBox ID="txtFullname" runat="server" Text="Họ tên"></asp:TextBox>

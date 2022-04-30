@@ -14,6 +14,7 @@ namespace BHT_Bookstore_ASP_NET
         protected void btnLogin_Click(object sender, EventArgs e)
         {
             DataTable dt = SQLQuery.ExecuteQuery("SELECT * FROM Users WHERE UserName = N'" + txtUsername.Text + "' AND PassWord = '" + Encryption.EncodeSHA1(txtPassword.Text) + "'");
+
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
@@ -22,7 +23,7 @@ namespace BHT_Bookstore_ASP_NET
                 Session["user_type"] = row["AccountTypeID"];
                 Session["username"] = row["Username"];
                 Session["avatar"] = row["Avatar"];
-                Response.Redirect("/Default.aspx");
+                Response.Redirect("/admin/books/list.aspx");
             }
         }
     }

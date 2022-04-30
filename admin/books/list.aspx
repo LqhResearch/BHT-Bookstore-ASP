@@ -241,7 +241,7 @@
                             <th>Giá bán</th>
                             <th>Thể loại</th>
                             <th>Nhà xuất bản</th>
-                            <th width="158">Công cụ</th>
+                            <th width="160">Công cụ</th>
                         </tr>
                     </thead>
                     <tbody>

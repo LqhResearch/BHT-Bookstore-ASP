@@ -108,7 +108,7 @@
                         <tr>
                             <th>Mã thể loại</th>
                             <th>Tên thể loại</th>
-                            <th width="111">Công cụ</th>
+                            <th width="112">Công cụ</th>
                         </tr>
                     </thead>
                     <tbody>

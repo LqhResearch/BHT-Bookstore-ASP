@@ -31,7 +31,7 @@
                             <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
                         </div>
                         <div class="field-group">
-                            <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" TextMode="Password" runat="server"></asp:TextBox>
                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                         </div>
                     </div>
