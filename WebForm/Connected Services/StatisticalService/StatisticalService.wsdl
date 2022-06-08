@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CountTable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="table" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CountTableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CountTableResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CategoryStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="CategoryStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CategoryStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthorStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="AuthorStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthorStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PublishStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="PublishStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PublishStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BookStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="BookStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BookStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SupplierStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="SupplierStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SupplierStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="OrderStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UserStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="UserStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SliderStatistical">
+        <s:complexType />
+      </s:element>
+      <s:element name="SliderStatisticalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SliderStatisticalResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CountTableSoapIn">
+    <wsdl:part name="parameters" element="tns:CountTable" />
+  </wsdl:message>
+  <wsdl:message name="CountTableSoapOut">
+    <wsdl:part name="parameters" element="tns:CountTableResponse" />
+  </wsdl:message>
+  <wsdl:message name="CategoryStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:CategoryStatistical" />
+  </wsdl:message>
+  <wsdl:message name="CategoryStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:CategoryStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="AuthorStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:AuthorStatistical" />
+  </wsdl:message>
+  <wsdl:message name="AuthorStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:AuthorStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="PublishStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:PublishStatistical" />
+  </wsdl:message>
+  <wsdl:message name="PublishStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:PublishStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="BookStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:BookStatistical" />
+  </wsdl:message>
+  <wsdl:message name="BookStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:BookStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SupplierStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:SupplierStatistical" />
+  </wsdl:message>
+  <wsdl:message name="SupplierStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:SupplierStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderStatistical" />
+  </wsdl:message>
+  <wsdl:message name="OrderStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="UserStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:UserStatistical" />
+  </wsdl:message>
+  <wsdl:message name="UserStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:UserStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SliderStatisticalSoapIn">
+    <wsdl:part name="parameters" element="tns:SliderStatistical" />
+  </wsdl:message>
+  <wsdl:message name="SliderStatisticalSoapOut">
+    <wsdl:part name="parameters" element="tns:SliderStatisticalResponse" />
+  </wsdl:message>
+  <wsdl:portType name="StatisticalServiceSoap">
+    <wsdl:operation name="CountTable">
+      <wsdl:input message="tns:CountTableSoapIn" />
+      <wsdl:output message="tns:CountTableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CategoryStatistical">
+      <wsdl:input message="tns:CategoryStatisticalSoapIn" />
+      <wsdl:output message="tns:CategoryStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthorStatistical">
+      <wsdl:input message="tns:AuthorStatisticalSoapIn" />
+      <wsdl:output message="tns:AuthorStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PublishStatistical">
+      <wsdl:input message="tns:PublishStatisticalSoapIn" />
+      <wsdl:output message="tns:PublishStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="BookStatistical">
+      <wsdl:input message="tns:BookStatisticalSoapIn" />
+      <wsdl:output message="tns:BookStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SupplierStatistical">
+      <wsdl:input message="tns:SupplierStatisticalSoapIn" />
+      <wsdl:output message="tns:SupplierStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderStatistical">
+      <wsdl:input message="tns:OrderStatisticalSoapIn" />
+      <wsdl:output message="tns:OrderStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UserStatistical">
+      <wsdl:input message="tns:UserStatisticalSoapIn" />
+      <wsdl:output message="tns:UserStatisticalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SliderStatistical">
+      <wsdl:input message="tns:SliderStatisticalSoapIn" />
+      <wsdl:output message="tns:SliderStatisticalSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="StatisticalServiceSoap" type="tns:StatisticalServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountTable">
+      <soap:operation soapAction="http://tempuri.org/CountTable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoryStatistical">
+      <soap:operation soapAction="http://tempuri.org/CategoryStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorStatistical">
+      <soap:operation soapAction="http://tempuri.org/AuthorStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishStatistical">
+      <soap:operation soapAction="http://tempuri.org/PublishStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookStatistical">
+      <soap:operation soapAction="http://tempuri.org/BookStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupplierStatistical">
+      <soap:operation soapAction="http://tempuri.org/SupplierStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderStatistical">
+      <soap:operation soapAction="http://tempuri.org/OrderStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserStatistical">
+      <soap:operation soapAction="http://tempuri.org/UserStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SliderStatistical">
+      <soap:operation soapAction="http://tempuri.org/SliderStatistical" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="StatisticalServiceSoap12" type="tns:StatisticalServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CountTable">
+      <soap12:operation soapAction="http://tempuri.org/CountTable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CategoryStatistical">
+      <soap12:operation soapAction="http://tempuri.org/CategoryStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AuthorStatistical">
+      <soap12:operation soapAction="http://tempuri.org/AuthorStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PublishStatistical">
+      <soap12:operation soapAction="http://tempuri.org/PublishStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookStatistical">
+      <soap12:operation soapAction="http://tempuri.org/BookStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupplierStatistical">
+      <soap12:operation soapAction="http://tempuri.org/SupplierStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderStatistical">
+      <soap12:operation soapAction="http://tempuri.org/OrderStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UserStatistical">
+      <soap12:operation soapAction="http://tempuri.org/UserStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SliderStatistical">
+      <soap12:operation soapAction="http://tempuri.org/SliderStatistical" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="StatisticalService">
+    <wsdl:port name="StatisticalServiceSoap" binding="tns:StatisticalServiceSoap">
+      <soap:address location="https://localhost:44393/StatisticalService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="StatisticalServiceSoap12" binding="tns:StatisticalServiceSoap12">
+      <soap12:address location="https://localhost:44393/StatisticalService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

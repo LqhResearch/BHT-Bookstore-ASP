@@ -20,11 +20,11 @@ GO
 CREATE TABLE Users
 (
 	Username NVARCHAR(64) NOT NULL PRIMARY KEY,
-	Password VARCHAR(64) NOT NULL,
+	Password VARCHAR(64),
 	Fullname NVARCHAR(64),
 	Phone VARCHAR(11),
 	Email VARCHAR(64) NOT NULL, -- Có thể đăng nhập bằng Email
-	Avatar NVARCHAR(255) NOT NULL,
+	Avatar NVARCHAR(255),
 	Money INT DEFAULT 0,
 	Status BIT DEFAULT 1, -- 1: hoạt động -- 0: khoá
 	CreatedAt DATETIME DEFAULT GETDATE(),
@@ -35,8 +35,8 @@ CREATE TABLE Users
 GO
 
 -- Username: Admin, QH -- Password: 123
-INSERT INTO Users VALUES ('Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0123456789', 'admin@gmail.com', '', 0, 1, GETDATE(), 1)
-INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quốc Hưng', '0987654321', 'qh@gmail.com', '', 0, 0, GETDATE(), 3)
+INSERT INTO Users VALUES ('Admin', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quản trị viên', '0123456789', 'admin@gmail.com', '/assets/img/admin.png', 0, 1, GETDATE(), 1)
+INSERT INTO Users VALUES ('QH', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', N'Quốc Hưng', '0987654321', 'qh@gmail.com', '/assets/img/user.png', 0, 0, GETDATE(), 3)
 GO
 
 CREATE TABLE Languages
@@ -660,19 +660,21 @@ GO
 CREATE TABLE Categories
 (
 	CategoryID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
-	CategoryName NVARCHAR(64)
+	CategoryName NVARCHAR(64),
+	ParentID INT,
+	Active BIT DEFAULT 1
 )
 GO
 
-INSERT INTO Categories (CategoryName) VALUES
-(N'Chính trị – Pháp luật'),
-(N'Khoa học công nghệ – Kinh tế'),
-(N'Văn học nghệ thuật'),
-(N'Văn hóa xã hội – Lịch sử'),
-(N'Giáo trình'),
-(N'Truyện, tiểu thuyết'),
-(N'Tâm lý, tâm linh, tôn giáo'),
-(N'Sách thiếu nhi')
+INSERT INTO Categories (CategoryName, ParentID) VALUES
+(N'Chính trị – Pháp luật', 0),
+(N'Khoa học công nghệ – Kinh tế', 0),
+(N'Văn học nghệ thuật', 0),
+(N'Văn hóa xã hội – Lịch sử', 0),
+(N'Giáo trình', 0),
+(N'Truyện, tiểu thuyết', 0),
+(N'Tâm lý, tâm linh, tôn giáo', 0),
+(N'Sách thiếu nhi', 0)
 GO
 
 CREATE TABLE Authors
@@ -684,19 +686,19 @@ CREATE TABLE Authors
 GO
 
 INSERT INTO Authors (AuthorName, Contact) VALUES
-(N'Aoyama Gosho', N'Tác giả Nhật Bản'),
-(N'Nguyễn Nhật Ánh', N'Tác giả Việt Nam'),
+(N'Aoyama Gosho', N'Đang cập nhật'),
+(N'Nguyễn Nhật Ánh', N'Đang cập nhật'),
 (N'Author Conan Doyle', N'Tác giả Anh'),
 (N'Shinkai Makoto', N'Tác giả Nhật'),
-(N'Tite Kubo', N'Tác giả Nhật Bản'),
-(N'Tô Hoài', N'Tác giả Việt Nam'),
-(N'Eiichiro Oda', N'Tác giả Nhật Bản'),
-(N'ONE', N'Tác giả Nhật Bản'),
-(N'Murata', N'Tác giả Nhật Bản'),
-(N'Gege Akutami', N'Tác giả Nhật Bản'),
-(N'Obata', N'Tác giả Nhật Bản'),
-(N'Masashi Kisimoto', N'Tác giả Nhật Bản'),
-(N'Fujiko', N'Tác giả Nhật Bản')
+(N'Tite Kubo', N'Đang cập nhật'),
+(N'Tô Hoài', N'Đang cập nhật'),
+(N'Eiichiro Oda', N'Đang cập nhật'),
+(N'ONE', N'Đang cập nhật'),
+(N'Murata', N'Đang cập nhật'),
+(N'Gege Akutami', N'Đang cập nhật'),
+(N'Obata', N'Đang cập nhật'),
+(N'Masashi Kisimoto', N'Đang cập nhật'),
+(N'Fujiko', N'Đang cập nhật')
 
 GO
 
@@ -711,10 +713,10 @@ CREATE TABLE Publishes
 GO
 
 INSERT INTO Publishes (PublishName, Phone, Address, Fax) VALUES 
-(N'NXB Kim Đồng', '02839390465', N'TP. Hồ Chí Minh', ''),
-(N'NXB Trẻ', '02893316289', N'TP. Hồ Chí Minh', ''),
-(N'NXB IPM', '0333193979', N'110 Nguyễn Ngọc Nại, Hà Nội', ''),
-(N'NXB Đồng Nai', '0933109009', N'TP. Biên Hoà, Đồng Nai', '')
+(N'Kim Đồng', '02839390465', N'TP. Hồ Chí Minh', ''),
+(N'Trẻ', '02893316289', N'TP. Hồ Chí Minh', ''),
+(N'IPM', '0333193979', N'110 Nguyễn Ngọc Nại, Hà Nội', ''),
+(N'Đồng Nai', '0933109009', N'TP. Biên Hoà, Đồng Nai', '')
 GO
 
 CREATE TABLE Suppliers
@@ -756,12 +758,12 @@ GO
 
 INSERT INTO Books VALUES
 ('9784041046593', N'Your Name', N'Truyện ngắn', 2016, 0, '130x176', 288, N'/assets/img/books/your-name.jpg', 'vi', 60000, 100, 100, 6, 3),
-('9786042268127', N'Chú Thuật Hồi Chiến Tập 1', N'Truyện ngắn', 2022, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-tap-1.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042212840', N'Chú Thuật Hồi Chiến Tập 0', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-0.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042268127', N'Chú Thuật Hồi Chiến Tập 1', N'Truyện ngắn', 2022, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-1.jpg', 'vi', 30000, 100, 100, 6, 1),
+('9786042212842', N'Chú Thuật Hồi Chiến Tập 2', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-2.jpg', 'vi', 30000, 100, 100, 6, 1),
 ('9786042234252', N'Thám Tử Lừng Danh Conan - Tập 99', N'Truyện ngắn', 2022, 200, '176x113', 184, N'/assets/img/books/conan-tap-99.jpg', 'vi', 20000, 100, 100, 6, 1),
 ('9784088802206', N'Naruto tập 72', N'Truyện ngắn', 2021, 0, '117x176', 288, N'/assets/img/books/naruto-vol-72.jpg', 'vi', 22000, 100, 100, 6, 3),
 ('9786042212847', N'Doraemon dài - Tập 14: Nobita và ba chàng hiệp sĩ mộng mơ', N'Truyện dài', 2021, 0, '130x190', 189, N'/assets/img/books/doraemon-vol-14.jpg', 'vi', 18000, 100, 100, 6, 1),
-('9786042212840', N'Chú Thuật Hồi Chiến Tập 0', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chut-thuat-hoi-chien-0.jpg', 'vi', 30000, 100, 100, 6, 1),
-('9786042212842', N'Chú Thuật Hồi Chiến Tập 2', N'Truyện ngắn', 2021, 0, '117x176', 184, N'/assets/img/books/chu-thuat-hoi-chien-2.jpg', 'vi', 30000, 100, 100, 6, 1),
 ('9786042212831', N'Death Note Tập 1', N'Truyện ngắn', 2020, 0, '117x176', 184, N'/assets/img/books/death-note-1.jpg', 'vi', 35000, 100, 100, 6, 1),
 ('9786042212811', N'One Punch Man Tập 1', N'Truyện ngắn', 2018, 0, '117x176', 184, N'/assets/img/books/opm-1.jpg', 'vi', 18000, 100, 100, 6, 1),
 ('9786042212819', N'One Punch Man Tập 9', N'Truyện ngắn', 2018, 0, '117x176', 184, N'/assets/img/books/opm-9.jpg', 'vi', 18000, 100, 100, 6, 1)
@@ -831,31 +833,31 @@ CREATE TABLE Composers
 GO
 
 INSERT INTO Composers VALUES
-('9784041046593', 4, N'Tác giả chính'),
-('9786042268127', 10, N'Tác giả chính'),
-('9786042234252', 1, N'Tác giả chính'),
-('9784088802206', 12, N'Tác giả chính'),
-('9786042212847', 13, N'Tác giả chính'),
-('9786042212840', 10, N'Tác giả chính'),
-('9786042212842', 10, N'Tác giả chính'),
-('9786042212831', 7, N'Tác giả chính'),
-('9786042268127', 11, N'Tác giả chính'),
-('9786042212811', 8, N'Tác giả chính'),
+('9784041046593', 4, N'Chủ biên'),
+('9786042268127', 10, N'Chủ biên'),
+('9786042234252', 1, N'Chủ biên'),
+('9784088802206', 12, N'Chủ biên'),
+('9786042212847', 13, N'Chủ biên'),
+('9786042212840', 10, N'Chủ biên'),
+('9786042212842', 10, N'Chủ biên'),
+('9786042212831', 7, N'Chủ biên'),
+('9786042268127', 11, N'Chủ biên'),
+('9786042212811', 8, N'Chủ biên'),
 ('9786042212811', 9, N'Tác giả phụ'),
-('9786042212819', 8, N'Tác giả chính'),
+('9786042212819', 8, N'Chủ biên'),
 ('9786042212819', 9, N'Tác giả phụ')
 
 GO
 
 CREATE TABLE Rating
 (
+	RatingID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
 	ISBN VARCHAR(13) NOT NULL,
 	Username NVARCHAR(64) NOT NULL,
 	Point INT,
 	CreatedAt DATETIME DEFAULT GETDATE(),
 	UpdatedAt DATETIME DEFAULT GETDATE(),
 
-	PRIMARY KEY (ISBN, Username),
 	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),
 	FOREIGN KEY (Username) REFERENCES Users (Username),
 )
@@ -904,4 +906,18 @@ INSERT INTO Sliders (SliderName, Description, Thumbnail, Status) VALUES
 (N'Slider 2', N'Mô tả slide 2', '/assets/img/sliders/slider-2.png', 1),
 (N'Slider 3', N'Mô tả slide 3', '/assets/img/sliders/slider-3.jpg', 1),
 (N'Slider 4', N'Mô tả slide 4', '/assets/img/sliders/slider-4.jpg', 1)
+GO
+
+CREATE TABLE Comments
+(
+	CommentID INT NOT NULL IDENTITY(1, 1) PRIMARY KEY,
+	ISBN VARCHAR(13) NOT NULL,
+	Username NVARCHAR(64),
+	Description NTEXT,
+	Active BIT DEFAULT 0,
+	CreatedAt DATE DEFAULT GETDATE(),
+
+	FOREIGN KEY (ISBN) REFERENCES Books (ISBN),
+	FOREIGN KEY (Username) REFERENCES Users (Username),
+)
 GO

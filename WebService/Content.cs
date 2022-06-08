@@ -1,0 +1,16 @@
+﻿namespace WebService
+{
+    public class Content
+    {
+        /// <summary>
+        /// Properties
+        /// </summary>
+        public static int RECORD_NUMBER_FOR_PAGE = 10;
+
+        /// <summary>
+        /// HTML frontend
+        /// </summary>
+        public static string SuccessDeleteMessage = "<div class='alert alert-success'><strong>Thông báo!</strong> Xoá thành công</div>";
+        public static string RepeaterNoData = "<tr class='text-center'><td colspan='100%'><i>Không tìm thấy dữ liệu</i></td></tr>";
+    }
+}
