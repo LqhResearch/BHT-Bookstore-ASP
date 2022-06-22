@@ -19,6 +19,7 @@
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
+            <asp:Label ID="lblMessage" runat="server"></asp:Label>
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-content-right">
@@ -48,9 +49,12 @@
                                                         </a>
                                                     </td>
                                                     <td class="product-name"><%# ObjToVnd(Eval("Price")) %></td>
-                                                    <td class="product-name"><%# Eval("Amount") %></td>
+                                                    <td class="product-name">
+                                                        <input min="1" type="number" value="<%# Eval("Amount") %>" style="width: 60px;" />
+                                                        <button type="button" class="btn btn-quanlity" onclick="update_quanlity(<%# Eval("ISBN") %>, this)"><i class="fas fa-save"></i></button>
+                                                    </td>
                                                     <td class="product-name"><%# ObjToVnd(Eval("Total")) %></td>
-                                                    <td class="product-name">Xóa</td>
+                                                    <td class="product-name"><a style="color: #fff;" class="btn btn-danger" href="?del-isbn=<%# Eval("ISBN") %>"><i class="fas fa-times"></i></a></td>
                                                 </tr>
                                             </ItemTemplate>
                                         </asp:Repeater>
@@ -97,4 +101,10 @@
             </div>
         </div>
     </div>
+    <script>
+        function update_quanlity(isbn, _this) {
+            var amount = _this.parentElement.querySelector("input").value;
+            location.href = location.protocol + "//" + location.host + "/Cart.aspx?action=update_quanlity&isbn=" + isbn + "&amount=" + amount;
+        }
+    </script>
 </asp:Content>

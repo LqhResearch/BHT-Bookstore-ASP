@@ -72,7 +72,7 @@ namespace WebService
         [WebMethod]
         public DataTable GetLanguageTable()
         {
-            string sql = "SELECT * FROM Languages WHERE LanguageID = 'vi' OR LanguageID = 'en'";
+            string sql = "SELECT * FROM Languages WHERE LanguageID = 'vi' OR LanguageID = 'en' ORDER BY LanguageID DESC";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             dt.TableName = "Languages";
             return dt;

@@ -18,6 +18,13 @@
     padding: 1rem;
 }
 
+.btn-quanlity {
+    line-height: 1.5;
+    background-color: #5a88ca;
+    color: #fff;
+    padding: 12px;
+}
+
 .form-search {
     height: 120px;
     display: flex;

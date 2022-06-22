@@ -51,6 +51,33 @@ namespace WebForm.admin.users
         protected global::System.Web.UI.WebControls.Button btnEdit;
 
         /// <summary>
+        /// txtID_Money control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtID_Money;
+
+        /// <summary>
+        /// txtValue_Money control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtValue_Money;
+
+        /// <summary>
+        /// btnMoney control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnMoney;
+
+        /// <summary>
         /// lblCountAll control.
         /// </summary>
         /// <remarks>

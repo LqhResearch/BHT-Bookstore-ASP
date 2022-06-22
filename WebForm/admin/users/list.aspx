@@ -56,6 +56,34 @@
         </div>
     </div>
 
+    <!-- Modal: Edit -->
+    <div class="modal fade" id="modal-coins">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Nạp tiền</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <asp:TextBox ID="txtID_Money" CssClass="form-control" ReadOnly="true" runat="server"></asp:TextBox>
+                    </div>
+                    <div class="form-group">
+                        <label>Số tiền</label>
+                        <asp:TextBox ID="txtValue_Money" CssClass="form-control" runat="server"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Huỷ</button>
+                    <asp:Button ID="btnMoney" CssClass="btn btn-success" runat="server" Text="Cập nhật" OnClick="btnMoney_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid row">
@@ -150,10 +178,11 @@
                         <th>Họ tên</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
+                        <th>Số tiền</th>
                         <th>Ảnh đại diện</th>
                         <th>Trạng thái</th>
                         <th>Loại tài khoản</th>
-                        <th width="112">Công cụ</th>
+                        <th width="157">Công cụ</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -164,11 +193,15 @@
                                 <td><%# Eval("Fullname") %></td>
                                 <td><a class="text-dark" href="tel:<%# Eval("Phone") %>"><%# Eval("Phone") %></a></td>
                                 <td><a class="text-dark" href="mailto:<%# Eval("Email") %>"><%# Eval("Email") %></a></td>
+                                <td><%# ObjToVnd(Eval("Money")) %></td>
                                 <td class="text-center"><a href="<%# Eval("Avatar") %>" target="_blank">
                                     <img width="50" height="50" src="<%# Eval("Avatar") %>" alt="" style="border-radius: 50%;" /></a></td>
                                 <td><%# (Convert.ToInt32(Eval("Status")) == 1) ? "<span class='badge badge-success'>Có</span>" : "<span class='badge badge-danger'>Không</span>" %></td>
                                 <td><span class='badge badge-info'><%# Eval("AccountTypeName") %></span></td>
                                 <td>
+                                    <span data-toggle="modal" data-target="#modal-coins">
+                                        <a href="?coin-id=<%# Eval("Username") %>" class="btn btn-info"><i class="fas fa-coins"></i></a>
+                                    </span>
                                     <span data-toggle="modal" data-target="#modal-edit">
                                         <a href="?edit-id=<%# Eval("Username") %>" class="btn btn-warning"><i class="fas fa-marker"></i></a>
                                     </span>
@@ -214,8 +247,11 @@
             }
 
             if (GetParameterValues('edit-id')) {
-                console.log($("span[data-target='#editModal']")[0]);
                 $("span[data-target='#modal-edit']")[0].click();
+            }
+
+            if (GetParameterValues('coin-id')) {
+                $("span[data-target='#modal-coins']")[0].click();
             }
         });
     </script>

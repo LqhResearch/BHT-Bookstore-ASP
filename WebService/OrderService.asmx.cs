@@ -34,8 +34,15 @@ namespace WebService
         [WebMethod]
         public bool AddCart(string isbn, string username, string amount)
         {
-            string sql = "INSERT INTO Carts (ISBN, Username, Amount) VALUES ('" + isbn + "', N'" + username + "', " + amount + ")";
-            return SQLQuery.ExecuteNonQuery(sql) > 0;
+            try
+            {
+                string sql = "INSERT INTO Carts (ISBN, Username, Amount) VALUES ('" + isbn + "', N'" + username + "', " + amount + ")";
+                return SQLQuery.ExecuteNonQuery(sql) > 0;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         [WebMethod]
@@ -111,7 +118,7 @@ namespace WebService
         [WebMethod]
         public bool PaymentOrder(string username, string orderID)
         {
-            string sql = @"IF ((SELECT Money FROM Users WHERE Username = '" + username + @"') >= (SELECT TotalMoney FROM Orders WHERE OrderID = '" + orderID + @"'))
+            string sql = @"IF ((SELECT Money FROM Users WHERE Username = '" + username + @"') >= (SELECT TotalMoney FROM Orders WHERE OrderID = '" + orderID + @"') AND (SELECT Status FROM Orders WHERE OrderID = '" + orderID + @"') = 0)
                             BEGIN
                                 DECLARE @totalMoney INT;
                                 SELECT @totalMoney = TotalMoney FROM Orders WHERE OrderID = '" + orderID + @"';

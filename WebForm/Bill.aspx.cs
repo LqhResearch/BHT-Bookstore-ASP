@@ -24,12 +24,17 @@ namespace WebForm
                     lblPhone.Text = orderData.Rows[0]["Phone"].ToString();
                     lblEmail.Text = orderData.Rows[0]["Email"].ToString();
 
+                    if (FormatDate(orderData.Rows[0]["PaymentDate"]) != "")
+                        img.ImageUrl = "/assets/img/paid-logo.jpg";
+
                     rptList.DataSource = order.GetOrderDetailBill(orderID);
                     rptList.DataBind();
 
                     lblTotal.Text = ObjToVnd(orderData.Rows[0]["TotalMoney"]);
                     lblFinalTotal.Text = ObjToVnd(orderData.Rows[0]["TotalRevenue"]);
                 }
+
+
             }
         }
 

@@ -11,10 +11,26 @@ namespace WebForm
         {
             if (!IsPostBack)
             {
-                if (Request.QueryString["isbn"] != null)
+                if (Request.QueryString["action"] != null)
                 {
                     string isbn = Request.QueryString["isbn"];
-                    order.AddCart(isbn, Session["Username"].ToString(), "1");
+                    string amount = Request.QueryString["amount"];
+                    order.EditCart(isbn, Session["Username"].ToString(), amount);
+                }
+                else
+                {
+                    if (Request.QueryString["isbn"] != null)
+                    {
+                        string isbn = Request.QueryString["isbn"];
+                        if (!order.AddCart(isbn, Session["Username"].ToString(), "1"))
+                            lblMessage.Text = "<div class='alert alert-danger' role='alert'><strong>Lỗi!</strong> Sản phẩm đã thêm rồi.</div>";
+                    }
+                }
+
+                if(Request.QueryString["del-isbn"] != null)
+                {
+                    string isbn = Request.QueryString["del-isbn"];
+                    order.DeleteCart(isbn, Session["Username"].ToString());
                 }
 
                 totalOrder = ObjToVnd(order.TotalOrder(Session["Username"].ToString()));

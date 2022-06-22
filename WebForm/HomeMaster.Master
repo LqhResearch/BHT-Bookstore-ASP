@@ -109,7 +109,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Trang chủ</a></li>
-                        <li><a href="/CategoryBooks.aspx">Danh mục</a></li>
+                        <li><a href="CategoryBooks.aspx?category-id=6">Danh mục</a></li>
                         <% if (Convert.ToInt32(Session["Role"]) == 3)
                             { %>
                         <li><a href="/MyOrders.aspx">Đơn hàng của tôi</a></li>

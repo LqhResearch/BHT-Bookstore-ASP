@@ -175,6 +175,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="UpdateMoney">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="coin" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateMoneyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UpdateMoneyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LoginSoapIn">
@@ -237,6 +252,12 @@
   <wsdl:message name="GetMoneySoapOut">
     <wsdl:part name="parameters" element="tns:GetMoneyResponse" />
   </wsdl:message>
+  <wsdl:message name="UpdateMoneySoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateMoney" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMoneySoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateMoneyResponse" />
+  </wsdl:message>
   <wsdl:portType name="UserServiceSoap">
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
@@ -277,6 +298,10 @@
     <wsdl:operation name="GetMoney">
       <wsdl:input message="tns:GetMoneySoapIn" />
       <wsdl:output message="tns:GetMoneySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMoney">
+      <wsdl:input message="tns:UpdateMoneySoapIn" />
+      <wsdl:output message="tns:UpdateMoneySoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="UserServiceSoap" type="tns:UserServiceSoap">
@@ -371,6 +396,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateMoney">
+      <soap:operation soapAction="http://tempuri.org/UpdateMoney" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="UserServiceSoap12" type="tns:UserServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -457,6 +491,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMoney">
       <soap12:operation soapAction="http://tempuri.org/GetMoney" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMoney">
+      <soap12:operation soapAction="http://tempuri.org/UpdateMoney" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

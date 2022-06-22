@@ -85,6 +85,13 @@ namespace WebForm.UserService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMoney", ReplyAction="*")]
         System.Threading.Tasks.Task<object> GetMoneyAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMoney", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        bool UpdateMoney(string username, string coin);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/UpdateMoney", ReplyAction="*")]
+        System.Threading.Tasks.Task<bool> UpdateMoneyAsync(string username, string coin);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -192,6 +199,14 @@ namespace WebForm.UserService {
         
         public System.Threading.Tasks.Task<object> GetMoneyAsync(string username) {
             return base.Channel.GetMoneyAsync(username);
+        }
+        
+        public bool UpdateMoney(string username, string coin) {
+            return base.Channel.UpdateMoney(username, coin);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateMoneyAsync(string username, string coin) {
+            return base.Channel.UpdateMoneyAsync(username, coin);
         }
     }
 }

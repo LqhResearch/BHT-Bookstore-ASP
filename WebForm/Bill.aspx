@@ -87,16 +87,21 @@
                 </table>
             </div>
 
-            <div class="row text-end">
-                <p>
-                    <b>Tổng tiền: </b>
-                    <asp:Label ID="lblTotal" runat="server" CssClass="span"></asp:Label>
-                </p>
-                <p><b>Phí vận chuyển: </b><span class="span">0 ₫</span></p>
-                <p>
-                    <b>Tổng cộng: </b>
-                    <asp:Label ID="lblFinalTotal" runat="server" CssClass="span"></asp:Label>
-                </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <asp:Image ID="img" runat="server" style="width: 200px;" />
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>
+                        <b>Tổng tiền: </b>
+                        <asp:Label ID="lblTotal" runat="server" CssClass="span"></asp:Label>
+                    </p>
+                    <p><b>Phí vận chuyển: </b><span class="span">0 ₫</span></p>
+                    <p>
+                        <b>Tổng cộng: </b>
+                        <asp:Label ID="lblFinalTotal" runat="server" CssClass="span"></asp:Label>
+                    </p>
+                </div>
             </div>
 
             <div class="row d-flex-center">

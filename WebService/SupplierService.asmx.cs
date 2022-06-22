@@ -39,11 +39,11 @@ namespace WebService
         public DataTable Search(string keyword)
         {
             // Add substring for integer value
-            int tmp = 0;
+            int tmp;
             string sub_sql = "";
             if (int.TryParse(keyword, out tmp))
             {
-                sub_sql = "SupplierID = '" + keyword + "' OR";
+                sub_sql = "SupplierID = " + tmp + " OR";
             }
 
             // Add substring for string value

@@ -9,6 +9,9 @@ namespace WebService
     [System.ComponentModel.ToolboxItem(false)]
     public class UserService : System.Web.Services.WebService
     {
+        /// <summary>
+        /// Đăng nhập và đăng ký
+        /// </summary>
         [WebMethod]
         [Obsolete]
         public bool Login(string username, string password)
@@ -42,7 +45,7 @@ namespace WebService
         [WebMethod]
         public DataTable GetItemById(string id)
         {
-            string sql = "SELECT Username, Fullname, Phone, Email, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID AND Username = N'" + id + "'";
+            string sql = "SELECT Username, Fullname, Phone, Email, Money, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID AND Username = N'" + id + "'";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             dt.TableName = "Users";
             return dt;
@@ -51,7 +54,7 @@ namespace WebService
         [WebMethod]
         public DataTable GetTable()
         {
-            string sql = "SELECT Username, Fullname, Phone, Email, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID ORDER BY AccountTypes.AccountTypeID";
+            string sql = "SELECT Username, Fullname, Phone, Email, Money, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID ORDER BY AccountTypes.AccountTypeID";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             dt.TableName = "Users";
             return dt;
@@ -60,7 +63,7 @@ namespace WebService
         [WebMethod]
         public DataTable GetTableWithPage(string startIndex)
         {
-            string sql = "SELECT Username, Fullname, Phone, Email, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID ORDER BY AccountTypes.AccountTypeID OFFSET " + startIndex + " ROWS FETCH NEXT " + Content.RECORD_NUMBER_FOR_PAGE + " ROWS ONLY";
+            string sql = "SELECT Username, Fullname, Phone, Email, Money, Avatar, Status, Users.AccountTypeID, AccountTypeName FROM Users, AccountTypes WHERE Users.AccountTypeID = AccountTypes.AccountTypeID ORDER BY AccountTypes.AccountTypeID OFFSET " + startIndex + " ROWS FETCH NEXT " + Content.RECORD_NUMBER_FOR_PAGE + " ROWS ONLY";
             DataTable dt = SQLQuery.ExecuteQuery(sql);
             dt.TableName = "Users";
             return dt;
@@ -90,6 +93,13 @@ namespace WebService
         {
             string sql = "SELECT Money FROM Users WHERE Username = '" + username + "'";
             return SQLQuery.ExecuteScalar(sql);
+        }
+
+        [WebMethod]
+        public bool UpdateMoney(string username, string coin)
+        {
+            string sql = "UPDATE Users SET Money = " + coin + " WHERE Username = '" + username + "'";
+            return SQLQuery.ExecuteNonQuery(sql) > 0;
         }
     }
 }

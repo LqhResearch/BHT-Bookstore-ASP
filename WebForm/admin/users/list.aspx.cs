@@ -41,6 +41,20 @@ namespace WebForm.admin.users
                     string id = Request.QueryString["del-id"];
                     lblMessage.Text = user.Delete(id) ? Content.SuccessMsg : Content.ErrorMsg;
                 }
+
+                // Money
+                if (Request.QueryString["coin-id"] != null)
+                {
+                    string id = Request.QueryString["coin-id"];
+
+                    DataTable dt = user.GetItemById(id);
+                    if (dt.Rows.Count > 0)
+                    {
+                        DataRow row = dt.Rows[0];
+                        txtID_Money.Text = row["Username"].ToString();
+                        txtValue_Money.Text = row["Money"].ToString();
+                    }
+                }
                 LoadData();
 
                 // Statistical
@@ -88,6 +102,13 @@ namespace WebForm.admin.users
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             LoadRepeater(user.Search(txtSearch.Text));
+        }
+        public static string ObjToVnd(object ojb) => Convert.ToInt32(ojb).ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("vi-vn"));
+
+        protected void btnMoney_Click(object sender, EventArgs e)
+        {
+            user.UpdateMoney(txtID_Money.Text, txtValue_Money.Text);
+            LoadData();
         }
     }
 }

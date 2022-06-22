@@ -916,7 +916,7 @@ ol.slide-indicators {
     margin-bottom: 50px;
 }
 
-input[type="text"], input[type="password"], input[type="email"], textarea {
+input[type="text"], input[type="password"], input[type="number"], input[type="email"], textarea {
     border: 1px solid #ddd;
     padding: 10px;
 }

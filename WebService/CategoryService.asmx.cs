@@ -39,12 +39,10 @@ namespace WebService
         public DataTable Search(string keyword)
         {
             // Add substring for integer value
-            int tmp = 0;
+            int tmp;
             string sub_sql = "";
             if (int.TryParse(keyword, out tmp))
-            {
-                sub_sql = "a.CategoryID = '" + keyword + "' OR";
-            }
+                sub_sql = "a.CategoryID = " + tmp + " OR";
 
             // Add substring for string value
             string sql = "SELECT a.*, b.CategoryName AS ParentName FROM Categories a LEFT JOIN Categories b ON a.ParentID = b.CategoryID WHERE " + sub_sql + " a.CategoryName LIKE N'%" + keyword + "%' ORDER BY a.CategoryID DESC";
